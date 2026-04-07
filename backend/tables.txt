@@ -1,0 +1,71 @@
+[
+  {
+    "Tables_in_fintrack_final": "account"
+  },
+  {
+    "Tables_in_fintrack_final": "audit_log"
+  },
+  {
+    "Tables_in_fintrack_final": "budget"
+  },
+  {
+    "Tables_in_fintrack_final": "budget_events"
+  },
+  {
+    "Tables_in_fintrack_final": "budget_transaction"
+  },
+  {
+    "Tables_in_fintrack_final": "budget_v2"
+  },
+  {
+    "Tables_in_fintrack_final": "budget_v2_categories"
+  },
+  {
+    "Tables_in_fintrack_final": "category"
+  },
+  {
+    "Tables_in_fintrack_final": "category_summary"
+  },
+  {
+    "Tables_in_fintrack_final": "emi"
+  },
+  {
+    "Tables_in_fintrack_final": "event_categories"
+  },
+  {
+    "Tables_in_fintrack_final": "events"
+  },
+  {
+    "Tables_in_fintrack_final": "monthly_summary"
+  },
+  {
+    "Tables_in_fintrack_final": "salary"
+  },
+  {
+    "Tables_in_fintrack_final": "savings"
+  },
+  {
+    "Tables_in_fintrack_final": "savings_emi_history"
+  },
+  {
+    "Tables_in_fintrack_final": "transaction"
+  },
+  {
+    "Tables_in_fintrack_final": "transfer"
+  },
+  {
+    "Tables_in_fintrack_final": "user_phones"
+  },
+  {
+    "Tables_in_fintrack_final": "users"
+  },
+  {
+    "Tables_in_fintrack_final": "vw_account_status"
+  },
+  {
+    "Tables_in_fintrack_final": "vw_monthly_category_spend"
+  },
+  {
+    "Tables_in_fintrack_final": "vw_user_transaction_history"
+  }
+]

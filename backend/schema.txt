@@ -1,0 +1,14 @@
+CREATE TABLE `users` (
+  `User_ID` int NOT NULL AUTO_INCREMENT,
+  `Name` varchar(100) NOT NULL,
+  `Email` varchar(100) NOT NULL,
+  `Address` text,
+  `Occupation` varchar(100) DEFAULT 'Student',
+  `Monthly_Income` decimal(15,2) DEFAULT '0.00',
+  `Password` varchar(255) NOT NULL,
+  `Last_Login` datetime DEFAULT NULL,
+  `Created_At` datetime DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`User_ID`),
+  UNIQUE KEY `Email` (`Email`),
+  CONSTRAINT `users_chk_2` CHECK ((`Monthly_Income` >= 0))
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci

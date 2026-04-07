@@ -1,0 +1,6 @@
+monthlyreports: 16 docs, user_ids: [1,2,6,7,8,9,10,11,12,13,14,23,25,26,27,28]
+userpreferences: 1 docs, user_ids: [1]
+notifications: 1 docs, user_ids: [7]
+transactions: 3 docs, user_ids: [7]
+financiallogs: 2 docs, user_ids: [7,25]
+adminlogs: 0 docs, user_ids: []

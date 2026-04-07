@@ -1,0 +1,104 @@
+[
+  {
+    "User_ID": 1,
+    "Name": "Rohan Sharma",
+    "Email": "rohan@example.com",
+    "role": "USER"
+  },
+  {
+    "User_ID": 2,
+    "Name": "Priya Verma",
+    "Email": "priya@example.com",
+    "role": "USER"
+  },
+  {
+    "User_ID": 6,
+    "Name": "Madhuri",
+    "Email": "madhuri@gmail.com",
+    "role": "USER"
+  },
+  {
+    "User_ID": 7,
+    "Name": "Damini User",
+    "Email": "damini123@gmail.com",
+    "role": "USER"
+  },
+  {
+    "User_ID": 8,
+    "Name": "Jatin",
+    "Email": "jatin123@gmail.com",
+    "role": "USER"
+  },
+  {
+    "User_ID": 9,
+    "Name": "Madhuri",
+    "Email": "madhuri123@gmail.com",
+    "role": "USER"
+  },
+  {
+    "User_ID": 10,
+    "Name": "Akhil",
+    "Email": "akhil123@gmail.com",
+    "role": "USER"
+  },
+  {
+    "User_ID": 11,
+    "Name": "Bhuvan",
+    "Email": "bhuvan123@gmail.com",
+    "role": "USER"
+  },
+  {
+    "User_ID": 12,
+    "Name": "Rakesh",
+    "Email": "rakesh123@gmail.com",
+    "role": "USER"
+  },
+  {
+    "User_ID": 13,
+    "Name": "Sanjay",
+    "Email": "sanjay123@gmail.com",
+    "role": "USER"
+  },
+  {
+    "User_ID": 14,
+    "Name": "Niranjan",
+    "Email": "niranjan123@gmail.com",
+    "role": "USER"
+  },
+  {
+    "User_ID": 23,
+    "Name": "Pooja Valleti",
+    "Email": "pooja123@gmail.com",
+    "role": "USER"
+  },
+  {
+    "User_ID": 25,
+    "Name": "Pooja Valleti",
+    "Email": "pooja1234@gmail.com",
+    "role": "USER"
+  },
+  {
+    "User_ID": 26,
+    "Name": "Raj",
+    "Email": "raj123@gmail.com",
+    "role": "USER"
+  },
+  {
+    "User_ID": 27,
+    "Name": "ramesh",
+    "Email": "ramesh123@gmail.com",
+    "role": "USER"
+  },
+  {
+    "User_ID": 28,
+    "Name": "Mohit",
+    "Email": "mohit123@gmail",
+    "role": "USER"
+  },
+  {
+    "User_ID": 31,
+    "Name": "System Admin",
+    "Email": "admin123@gmail.com",
+    "role": "ADMIN"
+  }
+]

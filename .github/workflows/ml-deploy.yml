@@ -1,0 +1,69 @@
+# GitHub Actions Workflow for ML Service (Python/FastAPI) Deployment to Azure App Service
+name: Deploy ML Service to Azure
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'ml/**'
+      - '.github/workflows/ml-deploy.yml'
+  workflow_dispatch:
+
+env:
+  AZURE_WEBAPP_NAME: fintrack-ml-7844
+  PYTHON_VERSION: '3.11'
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: 'pip'
+          cache-dependency-path: ml/requirements.txt
+
+      - name: Create deployment package
+        run: |
+          cd ml
+          
+          # Install dependencies
+          pip install -r requirements.txt
+          
+          # Create startup script for Azure
+          cat > startup.sh << 'EOF'
+          #!/bin/bash
+          cd /home/site/wwwroot
+          gunicorn -w 2 -k uvicorn.workers.UvicornWorker api:app --bind 0.0.0.0:8000
+          EOF
+          chmod +x startup.sh
+          
+          cd ..
+
+      - name: Deploy to Azure Web App
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: ${{ env.AZURE_WEBAPP_NAME }}
+          publish-profile: ${{ secrets.AZURE_ML_PUBLISH_PROFILE }}
+          package: ml
+
+      - name: Configure Azure App Service
+        uses: azure/CLI@v2
+        with:
+          azcliversion: latest
+          inlineScript: |
+            # Set startup command (if needed via Azure CLI)
+            # az webapp config set --resource-group rg-fintrack-student --name ${{ env.AZURE_WEBAPP_NAME }} --startup-file "gunicorn -w 2 -k uvicorn.workers.UvicornWorker api:app --bind 0.0.0.0:8000"
+            echo "Deployment complete"
+
+      - name: Deployment summary
+        run: |
+          echo "✅ ML Service deployed to: https://${{ env.AZURE_WEBAPP_NAME }}.azurewebsites.net"
+          echo "Health check: https://${{ env.AZURE_WEBAPP_NAME }}.azurewebsites.net/health"
+          echo "Fraud API: https://${{ env.AZURE_WEBAPP_NAME }}.azurewebsites.net/predict-fraud"

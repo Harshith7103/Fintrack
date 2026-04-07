@@ -1,0 +1,28 @@
+{
+  "name": "fintrack-final",
+  "version": "1.0.0",
+  "description": "FinTrack Financial Tracking System - Backend API",
+  "main": "backend/server.js",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "scripts": {
+    "dev": "nodemon backend/server.js",
+    "start": "node backend/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["fintech", "finance", "tracking"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^2.2.2",
+    "cors": "^2.8.6",
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1",
+    "mongoose": "^9.3.1",
+    "mysql2": "^3.16.2",
+    "neo4j-driver": "^6.0.1",
+    "nodemon": "^3.1.11",
+    "sqlite3": "^5.1.7"
+  }
+}

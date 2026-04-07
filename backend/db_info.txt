@@ -1,0 +1,12 @@
+CREATE TABLE `account` (
+  `Account_ID` int NOT NULL AUTO_INCREMENT,
+  `User_ID` int NOT NULL,
+  `Account_Name` varchar(100) NOT NULL,
+  `Account_Type` enum('Cash','Bank','Wallet','Credit Card') NOT NULL,
+  `Balance` decimal(15,2) DEFAULT '0.00',
+  `Created_At` datetime DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`Account_ID`),
+  KEY `User_ID` (`User_ID`),
+  CONSTRAINT `account_ibfk_1` FOREIGN KEY (`User_ID`) REFERENCES `users` (`User_ID`) ON DELETE CASCADE,
+  CONSTRAINT `account_chk_1` CHECK (((`Account_Type` in (_utf8mb4'Bank',_utf8mb4'Credit Card')) or (`Balance` >= 0)))
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci

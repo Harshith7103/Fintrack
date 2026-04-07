@@ -1,0 +1,5 @@
+
+DELETING GARBAGE USER: Test User 2 (test2@example.com)
+   -> Running: DELETE FROM ACCOUNT WHERE User_ID = ?
+   -> Running: DELETE FROM `TRANSACTION` WHERE User_ID = ?
+ERROR: Check constraint 'account_chk_1' is violated.

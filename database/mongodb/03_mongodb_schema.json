@@ -1,0 +1,62 @@
+[
+  {
+    "collection": "financial_logs",
+    "description": "Stores detailed logs of all system events for auditing and analytics",
+    "schema": {
+      "bsonType": "object",
+      "required": [
+        "log_id",
+        "user_id",
+        "event_type",
+        "timestamp"
+      ],
+      "properties": {
+        "log_id": {
+          "bsonType": "objectId"
+        },
+        "user_id": {
+          "bsonType": "int"
+        },
+        "event_type": {
+          "enum": [
+            "LOGIN",
+            "TRANSACTION",
+            "ERROR",
+            "EMI_DEDUCTION"
+          ],
+          "bsonType": "string"
+        },
+        "details": {
+          "bsonType": "object"
+        },
+        "timestamp": {
+          "bsonType": "date"
+        }
+      }
+    },
+    "example_document": {
+      "user_id": 101,
+      "event_type": "TRANSACTION",
+      "details": {
+        "amount": 5000,
+        "category": "Food",
+        "account_id": 12
+      },
+      "timestamp": "2024-02-14T10:00:00Z"
+    }
+  },
+  {
+    "collection": "monthly_reports",
+    "description": "Pre-aggregated monthly financial summaries",
+    "example_document": {
+      "report_id": "rep_2024_02_101",
+      "user_id": 101,
+      "month": "2024-02",
+      "total_income": 85000,
+      "total_expense": 42000,
+      "top_expense_category": "Rent",
+      "savings_rate": 50.5,
+      "generated_at": "2024-03-01T00:00:00Z"
+    }
+  }
+]
