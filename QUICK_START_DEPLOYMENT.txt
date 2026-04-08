@@ -1,0 +1,91 @@
+═══════════════════════════════════════════════════════════════════════════════
+  FinTrack Azure Deployment - Quick Start (85% Complete)
+═══════════════════════════════════════════════════════════════════════════════
+
+STEP 1: Import MySQL Schema (5 min)
+─────────────────────────────────────────────────────────────────────────────
+
+Open PowerShell and run (one at a time):
+
+cd C:\SEM 2 Mtech\CC\FINTRACK FINAL_CC\FINTRACK FINAL
+
+mysqlsh.exe --mysql --user=fintrackadmin --password="FinTrack@Azure2024!" --host=mysqlfintrack7844.mysql.database.azure.com --port=3306 --database=fintrack_final --file="database/mysql/01_create_tables.sql"
+
+mysqlsh.exe --mysql --user=fintrackadmin --password="FinTrack@Azure2024!" --host=mysqlfintrack7844.mysql.database.azure.com --port=3306 --database=fintrack_final --file="database/mysql/02_stored_procedures.sql"
+
+mysqlsh.exe --mysql --user=fintrackadmin --password="FinTrack@Azure2024!" --host=mysqlfintrack7844.mysql.database.azure.com --port=3306 --database=fintrack_final --file="database/mysql/03_triggers.sql"
+
+mysqlsh.exe --mysql --user=fintrackadmin --password="FinTrack@Azure2024!" --host=mysqlfintrack7844.mysql.database.azure.com --port=3306 --database=fintrack_final --file="database/mysql/05_seed_data.sql"
+
+✅ Check: Should see "Query OK" messages
+
+STEP 2: Create Static Web App (5 min)
+─────────────────────────────────────────────────────────────────────────────
+
+1. Go to: https://portal.azure.com
+2. Click: + Create a resource
+3. Search: "Static Web App"
+4. Create with these settings:
+   - Name: fintrack-frontend
+   - Resource Group: rg-fintrack-student
+   - Region: East US 2
+   - Source: GitHub (connect your repo)
+   - Build Presets: React
+   - App location: /frontend
+   - Output location: dist
+
+5. After creation, save the URL: https://[something].azurestaticapps.net
+
+STEP 3: Add GitHub Secrets (5 min)
+─────────────────────────────────────────────────────────────────────────────
+
+Get Secrets (run in PowerShell):
+
+az webapp deployment list-publishing-profiles --name fintrack-api-prod --resource-group rg-fintrack-student --xml
+
+→ Copy entire output → GitHub Settings → Secrets → New → AZURE_BACKEND_PUBLISH_PROFILE
+
+---
+
+az webapp deployment list-publishing-profiles --name fintrack-ml-prod --resource-group rg-fintrack-student --xml
+
+→ Copy entire output → GitHub Settings → Secrets → New → AZURE_ML_PUBLISH_PROFILE
+
+---
+
+Go to: Azure Portal → Static Web App → Overview → "Manage deployment token"
+
+→ Copy token → GitHub Settings → Secrets → New → AZURE_STATIC_WEB_APPS_API_TOKEN
+
+STEP 4: Deploy with Git (Automatic)
+─────────────────────────────────────────────────────────────────────────────
+
+git add .
+git commit -m "Deploy FinTrack to Azure"
+git push origin main
+
+Then go to: GitHub → Actions tab → Watch workflows complete
+
+═══════════════════════════════════════════════════════════════════════════════
+
+🎯 YOUR LIVE URLS (will be active after all steps):
+
+Frontend:  https://[your-static-app].azurestaticapps.net
+Backend:   https://fintrack-api-prod.azurewebsites.net
+ML:        https://fintrack-ml-prod.azurewebsites.net
+
+═══════════════════════════════════════════════════════════════════════════════
+
+Database Credentials:
+  Host: mysqlfintrack7844.mysql.database.azure.com
+  User: fintrackadmin
+  Password: FinTrack@Azure2024!
+  Database: fintrack_final
+  Port: 3306 (SSL: Required)
+
+═══════════════════════════════════════════════════════════════════════════════
+
+📖 For detailed instructions, see: DEPLOYMENT_FINAL_STEPS.md
+
+Created: 2024
+Status: 85% Complete - Ready for Final 4 Steps
