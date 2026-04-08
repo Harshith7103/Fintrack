@@ -6,7 +6,7 @@ import axios from 'axios';
  */
 const API_URL =
     import.meta.env.VITE_API_URL ||
-    (import.meta.env.DEV ? '/api' : '/api');
+    (import.meta.env.DEV ? '/api' : 'https://fintrack-api-prod.azurewebsites.net');
 
 export const api = axios.create({
     baseURL: API_URL,
