@@ -40,7 +40,7 @@ jobs:
           cat > startup.sh << 'EOF'
           #!/bin/bash
           cd /home/site/wwwroot
-          gunicorn -w 2 -k uvicorn.workers.UvicornWorker api:app --bind 0.0.0.0:8000
+          gunicorn -w 2 -k uvicorn.workers.UvicornWorker api:app --bind 0.0.0.0:8080
           EOF
           chmod +x startup.sh
           
@@ -59,7 +59,7 @@ jobs:
           azcliversion: latest
           inlineScript: |
             # Set startup command (if needed via Azure CLI)
-            # az webapp config set --resource-group rg-fintrack-student --name ${{ env.AZURE_WEBAPP_NAME }} --startup-file "gunicorn -w 2 -k uvicorn.workers.UvicornWorker api:app --bind 0.0.0.0:8000"
+            # az webapp config set --resource-group rg-fintrack-student --name ${{ env.AZURE_WEBAPP_NAME }} --startup-file "gunicorn -w 2 -k uvicorn.workers.UvicornWorker api:app --bind 0.0.0.0:8080"
             echo "Deployment complete"
 
       - name: Deployment summary
